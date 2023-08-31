@@ -1,0 +1,43 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Card from '../components/React/Card';
+import Searchbar from '../components/Astro/Searchbar/'
+import { Image } from '@astrojs/image/components';
+
+// Todo: Fetch all Songs and display them
+const songs = [];
+---
+
+<Layout title="Willkommen bei Nicolas Banger Sucher Webseite!.">
+	<main>
+		<Searchbar />
+		<!-- Todo: Import and use the React Searchbar as well and make it interactive-->
+		<!--https://docs.astro.build/en/core-concepts/framework-components/#hydrating-interactive-components-->
+		<ul role="list" class="link-card-grid">
+			{songs.length && songs.map(({title, img, artist})=> <Card
+				href={title}
+				title={title}
+				body={artist}
+				key={title}
+			>
+				<Image src={img} alt={title} format="webp" width="100" height="100" />
+			</Card>)}
+		</ul>
+	</main>
+</Layout>
+
+<style>
+	marquee{
+		font-size: 3rem;
+		margin-bottom: 2rem;
+	}
+	main {
+		padding: 1.5rem 0 1.5rem 0;
+	}
+	.link-card-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(24ch, 1fr));
+		gap: 1rem;
+		padding: 0;
+	}
+</style>

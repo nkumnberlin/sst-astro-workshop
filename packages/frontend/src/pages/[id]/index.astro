@@ -1,0 +1,19 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import SongText from '../../components/SongText/SongText.vue'
+import {getSong} from "../../api/backendApi";
+
+import {Song} from "../../interfaces";
+const { id } = Astro.params
+const song: Song | undefined = await getSong(id)
+
+// Add from the docs the vue adapter to package.json and display it
+// https://docs.astro.build/en/guides/integrations-guide/
+---
+
+<Layout title="Willkommen bei Nicolas Banger Sucher Webseite!">
+       <p style={{color:'white', paddingTop: '1rem'}}></p>
+       // Todo:
+       {song ?  <span> insert VueComponent here</span> : <p style={{color:'white'}}>Oh well, that's sad. No song found</p> }
+</Layout>
+

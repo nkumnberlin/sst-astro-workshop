@@ -1,0 +1,31 @@
+{
+  "name": "astro_demo",
+  "type": "module",
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "sst bind astro dev",
+    "start": "sst bind astro dev",
+    "build": "sst bind astro build",
+    "preview": "sst bind astro preview",
+    "astro": "sst bind astro"
+  },
+  "dependencies": {
+    "@astrojs/image": "^0.17.2",
+    "@astrojs/react": "^2.2.1",
+    "@astrojs/ts-plugin": "^1.0.10",
+    "@astrojs/vercel": "^3.6.0",
+    "astro": "^2.10.14",
+    "astro-sst": "^2.24.17",
+    "axios": "1.4.0",
+    "canvas-confetti": "^1.6.0",
+    "pnpm": "^8.6.6",
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0",
+    "vue": "^3.3.4"
+  },
+  "devDependencies": {
+    "@types/canvas-confetti": "^1.6.0",
+    "@types/react": "^18.0.21",
+    "@types/react-dom": "^18.0.6"
+  }
+}

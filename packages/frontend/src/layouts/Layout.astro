@@ -1,0 +1,69 @@
+---
+import Card from "../components/React/Card";
+// interface needs to be named Props for Astro.props
+export interface Props {
+	title: string;
+}
+// Access the Astro.Props
+// https://docs.astro.build/en/reference/api-reference/
+const title = ''
+---
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="description" content="Astro vs Next.js Vergleich. Kandidat Astro">
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="generator" content={Astro.generator} />
+		<title>{title}</title>
+		<ViewTransitions />
+	</head>
+	<body>
+	<main >
+		<!--Todo: Make it persistent-->
+		<marquee class="intro"  ><span class="text-gradient">Nicolas 90's Banger</span></marquee>
+		<Card
+			title="Willkommen! (Astro.js)"
+			body="... auf meiner kleinen Website fuer 90's Banger"
+		/>
+		<!--Todo: Add a Slide View Transition here https://docs.astro.build/en/guides/view-transitions/-->
+		<div >
+		<slot />
+		</div>
+	</main>
+	</body>
+</html>
+<style is:global>
+	:root {
+		background: #000;
+		--accent: 253, 224, 71;
+		--accent-gradient: linear-gradient(45deg, rgb(var(--accent)), #da62c4 30%, white 60%);
+		font-family: 'Comic Sans MS', sans-serif;
+	}
+	main{
+		padding: 2rem;
+		max-width: 1024px;
+		margin: auto;
+	}
+	.text-gradient {
+		background-image: var(--accent-gradient);
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+		background-size: 400%;
+		background-position: 0%;
+	}
+	marquee{
+		font-size: 3rem;
+		margin: 2rem;
+	}
+	html {
+		font-family: system-ui, sans-serif;
+		background-color: #F6F6F6;
+	}
+	code {
+		font-family: Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono,
+			Bitstream Vera Sans Mono, Courier New, monospace;
+	}
+</style>

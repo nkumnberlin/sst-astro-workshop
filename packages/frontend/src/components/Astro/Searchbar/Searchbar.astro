@@ -1,0 +1,51 @@
+---
+// Todo: Access the Props of Searchbar and delegate your name to the Label
+---
+
+<form>
+    <label for="name" class="label">Hi
+        <!-- Todo: your name here-->
+        Search a Song
+    </label>
+    <input type="text" id="name" name="name"><br><br>
+</form>
+<button data-confetti-button type="submit" value="submit">Search!</button>
+
+
+<script>
+    import confetti from 'canvas-confetti';
+
+    const buttons = document.querySelectorAll('[data-confetti-button]');
+    const navigate = () => {
+        window.location = document.getElementById('name').value
+    };
+    buttons.forEach((button) => {
+        button.addEventListener('click', navigate)
+        })
+    const explosion = ()=>confetti({
+        particleCount: 100,
+        startVelocity: 30,
+        spread: 360,
+        origin: {
+            x: Math.random(),
+            // since they fall down, start a bit higher than random
+            y: Math.random() - 0.2
+        }
+    });
+    document.getElementById('name').addEventListener('keypress', function (e) {
+        if (e.key === 'Enter') {
+            e.preventDefault()
+            navigate()
+        }
+    });
+
+    // Todo: add an Event Listener to the Name field that on every input an explosion should appear
+
+</script>
+
+
+<style>
+    .label{
+        color: white;
+    }
+</style>
